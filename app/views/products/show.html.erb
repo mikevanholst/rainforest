@@ -1,2 +1,15 @@
 <h1>Products#show</h1>
 <p>Find me in app/views/products/show.html.erb</p>
+
+<%= link_to 'All Products', products_path %> |
+
+<div class = 'show_display'>
+		Product: <%= @product[:name] %>
+		<br>  
+		Price: <%= number_to_currency(@product.price) %>
+		<br>
+		Description: 
+		<%= @product[:description] %>
+	</div>
+
+	
