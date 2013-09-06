@@ -7,9 +7,9 @@
 
 	<div class = "field">
 		<%= f.label :description %><br>
-		<%= f.text_area :description %>
+		<%= f.text_area :description, :class => "t_area"  %>
 	</div>
-	<div class = "field", "t_area">
+	<div class = "field ">
 		<%= f.label :price_in_cents %><br>
 		<%= f.number_field :price_in_cents %>
 	</div>
