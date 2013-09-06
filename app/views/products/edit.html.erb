@@ -1,5 +1,11 @@
 <h1>Edit</h1>
 
-<%= link_to 'Back' %> |
+<div class = "nav">
+	<ul>
+		<li><%= link_to 'Back', "/products/#{@product.id}" %> </li>
+	<ul>
+	<br>
+</div>
+ |
 
 <%= render 'form' %>
