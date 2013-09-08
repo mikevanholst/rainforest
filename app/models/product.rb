@@ -7,9 +7,12 @@ class Product < ActiveRecord::Base
   	
  
 
-
 	def price
 		# self.price_in_cents / 100
 		price_in_cents / 100
 	end
+
+
+  has_many :reviews
+  has_many :users, :through => :reviews
 end

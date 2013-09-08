@@ -17,4 +17,13 @@
 		<%= @product[:description] %>
 	</div>
 
+	<% if current_user %>
+		<%= render 'reviews' %>
+		<%= render 'new_review' %>	
+	<% else %>	
+		<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
+	<% end %>
+
 	
+
+

@@ -9,4 +9,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def ensure_logged_in
+    unless current_user
+      flash[:alert] = "Please Log in"
+    end
+  end
+
+
+
+
 end
