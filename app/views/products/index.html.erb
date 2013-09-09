@@ -2,7 +2,7 @@
 
 <div class = "nav">
 	<ul>
-		<li><%= link_to "Add a Product", "/products/new" %></li>
+		<li><%= link_to "Add a Product", new_product_path %></li>
 	<ul>
 	<br>
 </div>
@@ -10,7 +10,7 @@
 <% @products.each do |product| %>
 
 	<div class = 'index_display'>
-		Product: <%= link_to product.name, "/products/#{product.id}" %>
+		Product: <%= link_to product.name, product_path(product) %>
 		<br>  
 		Price: <%= number_to_currency(product.price) %>
 		<br>

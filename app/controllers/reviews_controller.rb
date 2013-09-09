@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 
+   before_filter :load_product 
    before_filter :ensure_logged_in, :only => [:edit, :create, :show, :update, :destroy]
 
 
@@ -19,7 +20,7 @@ class ReviewsController < ApplicationController
     #     )
     
     if @review.save
-      redirect_to products_path, :notice "Review created sucessuflly"
+      redirect_to products_path, :notice =>  'Review created sucessuflly'
     else
       render :action => :show
     end

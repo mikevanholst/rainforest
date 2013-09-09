@@ -18,8 +18,9 @@
 	</div>
 
 	<% if current_user %>
-		<%= render 'reviews' %>
-		<%= render 'new_review' %>	
+		<%= render '/reviews/reviews' %>
+		<%= render '/reviews/new_review' %>	
+		<p><%= link_to "Edit your profile", edit_user_path(current_user) %></p>
 	<% else %>	
 		<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
 	<% end %>
