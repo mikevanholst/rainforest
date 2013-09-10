@@ -21,16 +21,22 @@
   <div class = "field ">
 		<%= f.label :category %><br>
 		<%= collection_select(:product, :category_id, Category.all, :id, :category_name) %>
-		
-	</div>
-	<div class = "field">
-		<%= f.label :description %><br>
-		<%= f.text_area :description, :class => "t_area"  %>
 	</div>
 	<div class = "field ">
 		<%= f.label :price_in_cents %><br>
 		<%= f.number_field :price_in_cents %>
 	</div>
+	<div class = "field">
+		<%= f.label :description %><br>
+		<%= f.text_area :description, :class => "t_area"  %>
+	</div>
+	<div>
+		<%= f.label :Tags %>
+		<%= f.text_area :descriptor, :class => "t_area" %>
+		Add tags such as <%= Tag.each { |tag| tag.descriptor +", "  } %>
+	</div>
+
+
 	
 	<br>
 	<div class = "actions">
