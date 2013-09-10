@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :type 
-  # has_many :products
+  attr_accessible :category_name
+  has_many :products
 
 end

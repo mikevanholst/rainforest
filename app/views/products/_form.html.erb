@@ -13,6 +13,13 @@
 		</div>
 	<% end %>
 
+  <div class = "field ">
+
+
+		<%= f.label :category %><br>
+		<%= collection_select(:product, :category_id, Category.all, :id, :category_name) %>
+		
+	</div>
 	<div class = "field">
 		<%= f.label :name  %><br>
 		<%= f.text_field :name %>
@@ -26,15 +33,11 @@
 		<%= f.label :price_in_cents %><br>
 		<%= f.number_field :price_in_cents %>
 	</div>
-	<div class = "field ">
-		<%= f.label :category %><br>
-		<%= f.select :category, ['Tools', 'Kitchen Gagets', 'Technology', 'Books' ] %>
-	</div>
+	
 	<br>
 	<div class = "actions">
 		<%= f.submit %>
 	</div>
 
 <% end %>
-
 

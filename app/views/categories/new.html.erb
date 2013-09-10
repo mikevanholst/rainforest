@@ -1,0 +1,26 @@
+<h1>Categories#new</h1>
+<p>Find me in app/views/categories/new.html.erb</p>
+
+<%= form_for @category do |f|%>
+
+  <% if @category.errors.any? %>
+    <div id = "error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this product from being saved:</h2> 
+      <ul>
+        <%  @pcategory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category_name %>
+    <%= f.text_field :category_name %>
+  </div>
+ 
+ <div class="actions">
+    <%= f.submit %>
+ </div>
+
+<% end %>

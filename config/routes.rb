@@ -1,5 +1,13 @@
 Rainforest::Application.routes.draw do
 
+  get "categories/index"
+
+  get "categories/show"
+
+  get "categories/new"
+
+  get "categories/create"
+
   get "reviews/show"
 
   get "reviews/new"
@@ -17,7 +25,7 @@ Rainforest::Application.routes.draw do
   get "users/create"
 
 
-  resources :categories, :only => [:new, :create, :show] 
+  resources :categories, :only => [:new, :create, :show, :index] 
 
     resources :products do
       resources :reviews, :except => [:index]
