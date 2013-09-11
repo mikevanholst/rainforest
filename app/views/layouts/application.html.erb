@@ -8,30 +8,41 @@
   
 </head>
 <body>
+  <div class = "container">
 
-  <% if flash[:notice] %>
-    <p id="notice"><%= flash[:notice] %></p>
-  <% end %>
+    <div class = "banner">
+      <ul>
+        <li><h1>Rainforest Internet Flea Market</h1></li>
+        <li><span class="userinfo">
 
-  <% if flash[:alert] %>
-    <p id="alert"><%= flash[:alert] %></p>
-    <% end %>
+          <% if current_user %>
+            Signed in as <%= current_user.email %><br>
+             <%= link_to "Log out", session_path("current"), :method => :delete %>, 
+           <%= link_to "Edit your profile", edit_user_path(current_user) %>
+           
+          <% else %>
+            <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+          <% end %></li>
+       </span>
+      </ul>
 
+    </div>
+    <div class = "flash">
+      <% if flash[:notice] %>
+        <p id="notice"><%= flash[:notice] %></p>
+      <% end %>
 
-    <%= yield %>
-
-      <p class="userinfo">
-        <% if current_user %>
-          Signed in as <%= current_user.email %><br>
-           <%= link_to "Log out", session_path("current"), :method => :delete %>, 
-         <%= link_to "Edit your profile", edit_user_path(current_user) %>
-         
-        <% else %>
-          <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
+      <% if flash[:alert] %>
+        <p id="alert"><%= flash[:alert] %></p>
         <% end %>
-     </p>
+    </div>
+
+      <%= yield %>
+
+        
 
 
-
+    <div class="footer"><h5>Rainforest Internet Flea Market - Copyright <%= Time.now.year %>  Bitmiker Labs </h5> </div>
+  </div>
 </body>
 </html>

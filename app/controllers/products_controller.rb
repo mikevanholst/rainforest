@@ -3,12 +3,12 @@ class ProductsController < ApplicationController
 before_filter :ensure_logged_in, :only => [:show]
 
   def index
- 	@products = Product.all
+   	@products = Product.all
 
- 	respond_to do |format|
- 		format.html
- 		format.json {render json: @products}
- 	end	
+   	respond_to do |format|
+   		format.html
+   		format.json {render json: @products}
+   	end	
   end
 
   def show
@@ -19,9 +19,9 @@ before_filter :ensure_logged_in, :only => [:show]
     end
 
   	respond_to do |format|
- 		format.html
- 		format.json {render json: @product}
- 	end	
+   		format.html
+   		format.json {render json: @product}
+ 	  end	
   end
 
   def new
@@ -30,7 +30,7 @@ before_filter :ensure_logged_in, :only => [:show]
   	respond_to do |format|
  		format.html
  		format.json {render json: @product}
- 	end	
+ 	  end	
   end
 
   def edit
@@ -50,12 +50,13 @@ before_filter :ensure_logged_in, :only => [:show]
 		  	format.json { render json: @product.errors, status: :unprocessable_entity }
 
 		  end
-	end	  	
+	  end	  	
   end
 
 	def update
 		@product = Product.find(params[:id])
-
+    # debugger
+    @product.update_tags(params[:tag_list])
 		if @product.update_attributes(params[:product])
 			redirect_to product_path(@product)
 		else	

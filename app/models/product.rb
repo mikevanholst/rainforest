@@ -16,4 +16,20 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_many :reviews
   has_many :users, :through => :reviews
+  accepts_nested_attributes_for :tags
+
+
+
+  def update_tags(tag_list)
+    tag_array = tag_list.downcase.split(",")
+    tag_array.each do |tag|
+      self.tags <<  Tag.find_or_create_by_descriptor(tag)
+    end
+  end  
+
+  # def print_tags
+  #   @products.tags.each {|tag|  "#{tag.descriptor}, "} 
+  # end
+
+
 end

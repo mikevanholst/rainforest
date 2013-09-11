@@ -30,11 +30,18 @@
 		<%= f.label :description %><br>
 		<%= f.text_area :description, :class => "t_area"  %>
 	</div>
+	
 	<div>
-		<%= f.label :Tags %>
-		<%= f.text_area :descriptor, :class => "t_area" %>
-		Add tags such as <%= Tag.each { |tag| tag.descriptor +", "  } %>
-	</div>
+		<%#= fields_for :tags do |tf|%>
+
+			<%= label_tag :Tags %>
+			<%= text_area_tag :tag_list %><br>
+			Add tags such as:  
+			<% Tag.all.each  do |tag| %>
+			<%= tag.descriptor + ", "  %>
+		<% end %>
+			
+	</div> 
 
 
 	

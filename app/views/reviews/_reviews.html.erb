@@ -1,9 +1,6 @@
 
 
 
-  <h3>Reviews</h3>
-
-    <p>Reviews for <%= @product.name %></p>
 
     <% @product.reviews.newest_first.each do |review| %>
         <p>
@@ -11,7 +8,8 @@
           <br>
           <% if review.user != nil %>
             <em>by <%= review.user.email %></em><br>
-            Added on: <%= review.created_at %>
+            <span>Added on: <%= review.created_at.to_date %></span>
           <% end %>
         </p>
     <% end %>
+</div>
