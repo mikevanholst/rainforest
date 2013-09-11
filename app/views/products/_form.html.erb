@@ -34,7 +34,7 @@
 	<div>
 		<%#= fields_for :tags do |tf|%>
 
-			<%= label_tag :Tags %>
+			<%= label_tag :Tags %><br>
 			<%= text_area_tag :tag_list %><br>
 			Add tags such as:  
 			<% Tag.all.each  do |tag| %>

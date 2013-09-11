@@ -1,4 +1,3 @@
-<h1>Products</h1>
 
 <div class = "nav">
 	<ul>
@@ -6,16 +5,24 @@
 	<ul>
 	<br>
 </div>
+
+<h1>Products</h1>
  
 <% @products.each do |product| %>
 
 	<div class = 'index_display'>
-		Product: <%= link_to product.name, product_path(product) %>
-		<br>  
-		Price: <%= number_to_currency(product.price) %>
-		<br>
-		Description: 
-		<%= product[:description] %>
+		<p class="info">
+			Product: <%= link_to product.name, product_path(product) %>
+			<br>  
+			Price: <%= number_to_currency(product.price) %>
+			<br>
+			Category: <%= product.category[:category_name] if product.category  %>
+			<br>
+			Description: 
+			<%= product[:description] %>
+		</p>
+		<div class = "photo">
+		</div>
 	</div>
 
 	<br>	
