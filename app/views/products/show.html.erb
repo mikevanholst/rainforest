@@ -7,6 +7,7 @@
 	</div>
 		
 <div class = 'show_display'>
+	<div class = 'show_info'>
 		<h1><%= @product[:name] %></h1>
 		<h4> Price: <%= number_to_currency(@product.price) %></h4>
 		<p> Category: <%= @product.category[:category_name] if  @product.category  %></p>
@@ -16,7 +17,10 @@
 		<p>Tagged as:<%  @product.tags.each do |tag| %>
 			<%= tag.descriptor + ", " %>
 		<% end %></p> 
-			
+	</div>	
+	<div class = "show_photo">
+			<img src="<%= "#{@product.photo}" %>">
+	</div>
 </div>
 
 <div class = "reviews">

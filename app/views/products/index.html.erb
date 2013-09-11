@@ -11,6 +11,9 @@
 <% @products.each do |product| %>
 
 	<div class = 'index_display'>
+		<div class = "photo">
+			<a href="<%= product_path(product) %>"><img src="<%= "#{product.photo}" %>"></a>
+		</div>
 		<p class="info">
 			Product: <%= link_to product.name, product_path(product) %>
 			<br>  
@@ -21,8 +24,7 @@
 			Description: 
 			<%= product[:description] %>
 		</p>
-		<div class = "photo">
-		</div>
+		
 	</div>
 
 	<br>	
