@@ -33,7 +33,8 @@ Rainforest::Application.routes.draw do
  
   
 
-   resources :users, :except => [:index, :destroy]
+  
+   resources :users
 
    root :to => 'products#index'
 

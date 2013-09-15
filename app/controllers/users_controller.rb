@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-
+  skip_before_filter :ensure_logged_in, :only => [:new, :create]
   before_filter :load_user, :only => [:show, :edit, :update, :destroy]
+
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new

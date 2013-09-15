@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  
+  before_filter :ensure_logged_in
+
   protect_from_forgery
 
   private
@@ -12,6 +15,7 @@ class ApplicationController < ActionController::Base
   def ensure_logged_in
     unless current_user
       flash[:alert] = "Please Log in"
+      redirect_to new_session_path
     end
   end
 

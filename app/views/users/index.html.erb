@@ -1,0 +1,42 @@
+<%= link_to 'Back to Products', products_path %> 
+<h1>User List</h1>
+
+<% User.all.each do |user| %>
+  <% if user.email %> 
+    <div class= "user_idex">
+     <strong><%=user.name  %></strong> 
+     <%= user.admin %>
+     <%=  user.admin  ? "ADMIN" : "Guest" %> <br>
+     Email: <%= user.email %>
+     <br>
+     Name: <%= user.first %> <%= user.last %>
+     <br>
+    </div>
+    <br>
+  <% end %>
+<% end %>
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

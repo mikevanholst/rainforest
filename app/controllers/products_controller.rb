@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
  
-before_filter :ensure_logged_in, :only => [:show]
+# before_filter :ensure_logged_in, :only => [:show]
+
+
 
   def index
    	@products = Product.all
@@ -35,7 +37,7 @@ before_filter :ensure_logged_in, :only => [:show]
 
   def edit
   	@product = Product.find(params[:id])
-
+# 
   end
 
   def create
@@ -43,9 +45,11 @@ before_filter :ensure_logged_in, :only => [:show]
 
 	  respond_to do |format|
 		  if @product.save
+
 		  	format.html { redirect_to @product, notice: "Product was successfully created." }
 		  	format.json { render json: @product, status: :created, location: @product }
 		  else
+        flash.now[:alert] = "Oh no!"
 		  	format.html { render action: "new" }
 		  	format.json { render json: @product.errors, status: :unprocessable_entity }
 
